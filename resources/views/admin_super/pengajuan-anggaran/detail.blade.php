@@ -10,6 +10,7 @@
             <strong>Anggaran:</strong><br>
             <span>No Surat: <strong>{{ $anggaran->no_surat }}</strong></span><br>
             <span>Divisi: <strong>{{ $anggaran->divisi }}</strong></span><br>
+            <span>Nama Karyawan: <strong>{{ $anggaran->nama_karyawan }}</strong></span><br>
             <span>Tanggal Pengajuan: <strong>{{ $anggaran->created_at->format('d-m-Y') }}</strong></span><br>
         </div>
     @endif

@@ -10,7 +10,8 @@
         <div class="alert alert-info">
             <strong>Anggaran:</strong><br>
             <span>No Surat: <strong>{{ $anggaran->no_surat }}</strong></span><br>
-            <span>Divisi: <strong>{{ $anggaran->divisi }}</strong></span>
+            <span>Divisi: <strong>{{ $anggaran->divisi }}</strong></span><br>
+            <span>Nama Karyawan: <strong>{{ $anggaran->nama_karyawan }}</strong></span>
         </div>
     @endif
 

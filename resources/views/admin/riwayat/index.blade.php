@@ -13,6 +13,7 @@
                 <th>Barang Yang Diajukan</th>
                 <th>Qty</th>
                 <th>Harga</th>
+                <th>Diajukan Oleh</th>
                 <th>Status Pengajuan</th>
             </tr>
         </thead>
@@ -25,6 +26,7 @@
                 <td>{{ $item->barang_yang_diajukan }}</td>
                 <td>{{ $item->qty }}</td>
                 <td>Rp {{ number_format($item->harga, 0, ',', '.') }}</td>
+                <td>{{ $item->anggaran->user->name }}</td>
                 <td>
                     @if($item->status_pengajuan == 1)
                         <span class="badge bg-success">Disetujui</span>
