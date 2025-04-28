@@ -60,6 +60,7 @@ Route::middleware(['auth', 'role:direktur,admin super'])->prefix('direktur')->na
     Route::get('/pengajuan-anggaran', [DirekturController::class, 'pengajuanAnggaran'])->name('pengajuan.index');
     Route::get('/pengajuan-anggaran/{id}', [DirekturController::class, 'showDetail'])->name('pengajuan.detail');
     Route::post('/pengajuan-anggaran/approve/{id}', [DirekturController::class, 'accAnggaran'])->name('pengajuan.acc');
+    // Route::get('/riwayat-pengajuan', [DetailAnggaranController::class, 'riwayat'])->name('riwayat-pengajuan.index');
 });
 
 // Admin super - Akses khusus admin super dengan tampilan khusus
@@ -85,4 +86,8 @@ Route::middleware(['auth', 'role:admin super'])->prefix('admin_super')->name('ad
     Route::get('/user/{id}/edit', [UserController::class, 'edit'])->name('user.edit');
     Route::put('/user/{id}', [UserController::class, 'update'])->name('user.update');
     Route::delete('/user/{id}', [UserController::class, 'destroy'])->name('user.destroy');
+});
+
+Route::middleware(['auth', 'role:admin,admin super,direktur'])->group(function () {
+    Route::get('/riwayat-pengajuan', [DetailAnggaranController::class, 'riwayat'])->name('riwayat-pengajuan.index');
 });

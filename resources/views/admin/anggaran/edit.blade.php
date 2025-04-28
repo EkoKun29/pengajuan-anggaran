@@ -35,7 +35,7 @@
 
                 <div class="mb-3">
                     <label for="akun_biaya" class="form-label">Akun Biaya</label>
-                    <input type="number" name="akun_biaya" class="form-control" value="{{ $anggaran->ajuan_biaya }}" required>
+                    <input type="text" name="akun_biaya" class="form-control" value="{{ $anggaran->akun_biaya }}" required>
                 </div>
 
                 <div class="mb-3">

@@ -1,8 +1,9 @@
 @extends('admin_super.layouts.app')
 
 @section('content')
-<div class="container">
-    <h2>Detail Anggaran</h2>
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Detail Anggaran</h5>
 
     <!-- Menampilkan info anggaran utama -->
     @if(isset($anggaran))
@@ -34,7 +35,7 @@
                     <td>{{ $detail->qty }}</td>
                     <td>Rp {{ number_format($detail->harga, 0, ',', '.') }}</td>
                     <td>{{ $detail->kode_pajak }}</td>
-                    <td>
+                    <td style="text-align: center">
                         @if($detail->status_pengajuan == 0)
                             <span class="badge bg-warning">Menunggu</span>
                         @elseif($detail->status_pengajuan == 1)

@@ -132,4 +132,20 @@ class DetailAnggaranController extends Controller
         return view('admin_super.detail-anggaran.create', compact('anggaran'));
     }
 
+    // Menampilkan riwayat pengajuan yang sudah disetujui
+    public function riwayat()
+    {
+        $riwayatAnggarans = DetailAnggaran::where('status_pengajuan', 1)->with('anggaran')->get();
+        
+        if (Auth::user()->role == 'admin super') {
+            return view('admin_super.riwayat.index', compact('riwayatAnggarans'));
+        } elseif (Auth::user()->role == 'direktur') {
+            return view('direktur.riwayat.index', compact('riwayatAnggarans'));
+        } elseif (Auth::user()->role == 'admin') {
+            return view('admin.riwayat.index', compact('riwayatAnggarans'));
+        } else {
+            abort(403, 'Unauthorized action.');
+        }
+    }
+
 }

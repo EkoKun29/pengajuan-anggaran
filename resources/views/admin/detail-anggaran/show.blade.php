@@ -16,7 +16,7 @@
     <!-- Tabel detail anggaran -->
     <table class="table table-bordered mt-4">
         <thead>
-            <tr>
+            <tr style="text-align: center">
                 <th>No</th>
                 <th>Barang yang Diajukan</th>
                 <th>Qty</th>
@@ -34,7 +34,7 @@
                     <td>{{ $detail->qty }}</td>
                     <td>Rp {{ number_format($detail->harga, 0, ',', '.') }}</td>
                     <td>{{ $detail->kode_pajak }}</td>
-                    <td>
+                    <td style="text-align: center">
                         @if($detail->status_pengajuan == 0)
                             <span class="badge bg-warning">Menunggu</span>
                         @elseif($detail->status_pengajuan == 1)

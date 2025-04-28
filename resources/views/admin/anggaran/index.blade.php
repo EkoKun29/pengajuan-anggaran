@@ -9,7 +9,7 @@
           </a>
                 <table class="table datatable">
                     <thead class="thead-light">
-                        <tr>
+                        <tr style="text-align: center">
                             <th>No</th>
                             <th>Tanggal Pengajuan</th>
                             <th>No Surat</th>

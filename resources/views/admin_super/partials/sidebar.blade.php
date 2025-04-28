@@ -22,14 +22,14 @@
           <i class="bi bi-clipboard"></i><span>Pengajuan</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          {{-- <li>
-            <a href="#">
-              <i class="bi bi-circle"></i><span>Input Barcode</span>
+          <li>
+            <a href="{{ route('admin_super.ASanggaran.index') }}">
+              <i class="bi bi-circle"></i><span>Input Pengajuan</span>
             </a>
           </li>
-          <li> --}}
-            <a href="{{ route('admin_super.ASanggaran.index') }}">
-              <i class="bi bi-circle"></i><span>Daftar Pengajuan</span>
+          <li>
+            <a href="{{ route('riwayat-pengajuan.index') }}">
+              <i class="bi bi-circle"></i><span>Riwayat Pengajuan</span>
             </a>
           </li>
         </ul>
@@ -53,6 +53,7 @@
         </ul>
       </li><!-- End Barcode -->
 
+      
       {{-- <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-journal-text"></i><span>Pembelian</span><i class="bi bi-chevron-down ms-auto"></i>
@@ -101,7 +102,6 @@
           </li>
         </ul>
       </li><!-- End Penjualan Nav --> --}}
-
       
         <li class="nav-item">
             <a class="nav-link collapsed" href="{{ route('admin_super.user.index') }}">

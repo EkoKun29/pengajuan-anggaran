@@ -1,8 +1,9 @@
-@extends('direktur.layouts.app') <!-- Menggunakan layout untuk Direktur -->
+@extends('direktur.layouts.app')
 
 @section('content')
-<div class="container">
-    <h2>Detail Anggaran</h2>
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Detail Anggaran</h5>
 
     <!-- Menampilkan info anggaran utama -->
     @if(isset($anggaran))
@@ -28,6 +29,9 @@
             </tr>
         </thead>
         <tbody>
+            @php
+                $subtotal = 0; // Untuk menghitung subtotal
+            @endphp
             @forelse($anggaran->detailAnggarans as $index => $detail)
                 <tr>
                     <td>{{ $index + 1 }}</td>
@@ -35,7 +39,7 @@
                     <td>{{ $detail->qty }}</td>
                     <td>Rp {{ number_format($detail->harga, 0, ',', '.') }}</td>
                     <td>{{ $detail->kode_pajak }}</td>
-                    <td>
+                    <td style="text-align: center">
                         @if($detail->status_pengajuan == 0)
                             <span class="badge bg-warning">Menunggu</span>
                         @elseif($detail->status_pengajuan == 1)
@@ -46,14 +50,25 @@
                     </td>
                     <td>Rp {{ number_format($detail->qty * $detail->harga, 0, ',', '.') }}</td>
                 </tr>
+                @php
+                    // Menambahkan hasil total per item ke subtotal
+                    $subtotal += $detail->qty * $detail->harga;
+                @endphp
             @empty
                 <tr>
                     <td colspan="7" class="text-center">Belum ada detail anggaran</td>
                 </tr>
             @endforelse
         </tbody>
+        <tfoot>
+            <!-- Baris subtotal -->
+            <tr>
+                <td colspan="6" class="text-right"><strong>Subtotal:</strong></td>
+                <td><strong>Rp {{ number_format($subtotal, 0, ',', '.') }}</strong></td>
+            </tr>
+        </tfoot>
     </table>
 
-    <a href="{{ route('direktur.pengajuan.index') }}" class="btn btn-secondary mt-3">Kembali</a> <!-- Tombol Kembali menggunakan route Direktur -->
+    <a href="{{ route('direktur.pengajuan.index') }}" class="btn btn-secondary mt-3">Kembali</a> 
 </div>
 @endsection

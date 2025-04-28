@@ -22,14 +22,14 @@
           <i class="bi bi-clipboard"></i><span>Pengajuan</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          {{-- <li>
-            <a href="#">
-              <i class="bi bi-circle"></i><span>Input Barcode</span>
+          <li>
+            <a href="{{ route('anggaran.index') }}">
+              <i class="bi bi-circle"></i><span>Pengajuan</span>
             </a>
           </li>
-          <li> --}}
-            <a href="{{ route('anggaran.index') }}">
-              <i class="bi bi-circle"></i><span>Daftar Pengajuan</span>
+          <li>
+            <a href="{{ route('riwayat-pengajuan.index') }}">
+              <i class="bi bi-circle"></i><span>Riwayat Pengajuan</span>
             </a>
             {{-- <a href="#">
               <i class="bi bi-circle"></i><span>Input Anggaran</span>

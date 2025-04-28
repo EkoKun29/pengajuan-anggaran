@@ -37,7 +37,7 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#audit-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-clipboard-check"></i><span>Status Pengajuan</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-clipboard-check"></i><span>Pengajuan</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="audit-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           {{-- <li>
@@ -47,31 +47,31 @@
           </li>
           <li> --}}
             <a href="{{ route('direktur.pengajuan.index') }}">
-              <i class="bi bi-circle"></i><span>Status Pengajuan</span>
+              <i class="bi bi-circle"></i><span>Pengajuan</span>
           </a>          
           </li>
         </ul>
       </li><!-- End Barcode -->
 
-      {{-- <li class="nav-item">
+      <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-journal-text"></i><span>Pembelian</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-journal-text"></i><span>Riwayat Pengajuan</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="{{ route('pembelian.create') }}">
-              <i class="bi bi-circle"></i><span>Input Pembelian</span>
+            <a href="{{ route('riwayat-pengajuan.index') }}">
+              <i class="bi bi-circle"></i><span>Riwayat Pengajuan</span>
             </a>
           </li>
-          <li>
+          {{-- <li>
             <a href="{{ route('pembelian.index') }}">
               <i class="bi bi-circle"></i><span>Daftar Pembelian</span>
             </a>
-          </li>
+          </li> --}}
         </ul>
       </li><!-- End Pembelian Nav -->
 
-      <li class="nav-item">
+      {{-- <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-layout-text-window-reverse"></i><span>Harga Jual</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
