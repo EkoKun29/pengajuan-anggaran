@@ -4,8 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AnggaranController;
 use App\Http\Controllers\DirekturController;
+use App\Http\Controllers\DivisionController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\AdminSuperController;
+use App\Http\Controllers\ImportExcelController;
 use App\Http\Controllers\DetailAnggaranController;
 
 // Login
@@ -86,8 +88,18 @@ Route::middleware(['auth', 'role:admin super'])->prefix('admin_super')->name('ad
     Route::get('/user/{id}/edit', [UserController::class, 'edit'])->name('user.edit');
     Route::put('/user/{id}', [UserController::class, 'update'])->name('user.update');
     Route::delete('/user/{id}', [UserController::class, 'destroy'])->name('user.destroy');
+
+    //import data excel
+    // Route::post('/divisions/import', [DivisionController::class, 'import'])->name('divisions.import');
+    Route::post('/import-excel', [ImportExcelController::class, 'import'])->name('divisions.import');
+
 });
 
 Route::middleware(['auth', 'role:admin,admin super,direktur'])->group(function () {
     Route::get('/riwayat-pengajuan', [DetailAnggaranController::class, 'riwayat'])->name('riwayat-pengajuan.index');
 });
+
+// Menampilkan halaman upload
+Route::get('admin_super/import-excel', function () {
+    return view('admin_super.import_excel.index');
+})->name('divisions.import.view');

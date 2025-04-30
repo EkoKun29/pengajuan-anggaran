@@ -110,6 +110,13 @@
             </a>
         </li>
         <!-- End akun user Nav -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{ route('divisions.import.view') }}">
+                <i class="bi bi-person"></i>
+                <span>Import Data Excel</span>
+            </a>
+        </li>
+        <!-- End akun user Nav -->
 
     </ul>
 
