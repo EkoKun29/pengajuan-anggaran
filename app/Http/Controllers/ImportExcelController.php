@@ -15,6 +15,11 @@ class ImportExcelController extends Controller
             'file' => 'required|file|mimes:xlsx,xls,csv',
         ]);
 
+        // Hapus semua data sebelumnya
+        PlotYangDipakai::truncate();
+        NamaKaryawan::truncate();
+        Divisi::truncate();
+
         $file = $request->file('file');
         $spreadsheet = IOFactory::load($file->getPathname());
         $sheet = $spreadsheet->getActiveSheet();
@@ -27,7 +32,6 @@ class ImportExcelController extends Controller
             $namaKaryawan = $row[2] ?? null;   // Kolom C
             $divisi = $row[4] ?? null;         // Kolom E
 
-            // Simpan ke tabel masing-masing jika ada nilainya
             if ($plottingBudget) {
                 PlotYangDipakai::create([
                     'plotting_budget' => $plottingBudget
@@ -47,6 +51,6 @@ class ImportExcelController extends Controller
             }
         }
 
-        return back()->with('success', 'Data berhasil diimport ke masing-masing tabel.');
+        return back()->with('success', 'Data berhasil diimport dan data lama telah dihapus.');
     }
 }

@@ -27,19 +27,19 @@
                     <label for="divisi" class="form-label">Divisi</label>
                     <select name="divisi" class="form-control" required>
                         <option value="">Pilih Divisi</option>
-                        <option value="Keuangan">Keuangan</option>
-                        <option value="SDM">SDM</option>
-                        <option value="Operasional">Operasional</option>
+                        @foreach(App\Models\Divisi::select('divisi')->distinct()->get() as $div)
+                            <option value="{{ $div->divisi }}">{{ $div->divisi }}</option>
+                        @endforeach
                     </select>
                 </div>
 
                 <div class="mb-3">
                     <label for="plot_yang_dipakai" class="form-label">Plot yang Dipakai</label>
                     <select name="plot_yang_dipakai" class="form-control" required>
-                        <option value="">Pilih Divisi</option>
-                        <option value="Keuangan">Keuangan</option>
-                        <option value="SDM">SDM</option>
-                        <option value="Operasional">Operasional</option>
+                        <option value="">Pilih Plotting Budget</option>
+                        @foreach (App\Models\PlotYangDipakai::select('plotting_budget')->distinct()->get() as $plt )
+                            <option value="{{ $plt->plotting_budget }}">{{ $plt->plotting_budget }}</option>
+                        @endforeach
                     </select>
                 </div>
 
@@ -50,7 +50,12 @@
 
                 <div class="mb-3">
                     <label for="nama_karyawan" class="form-label">Nama Karyawan</label>
-                    <input type="text" name="nama_karyawan" class="form-control" required>
+                    <select name="nama_karyawan" class="form-control" required>
+                        <option value="">Pilih Karyawan</option>
+                        @foreach (App\Models\NamaKaryawan::select('nama')->distinct()->get() as $nam )
+                            <option value="{{ $nam->nama }}">{{ $nam->nama }}</option>
+                        @endforeach
+                    </select>
                 </div>
 
                 <div class="d-flex justify-content-between">

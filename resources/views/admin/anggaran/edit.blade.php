@@ -25,12 +25,26 @@
 
                 <div class="mb-3">
                     <label for="divisi" class="form-label">Divisi</label>
-                    <input type="text" name="divisi" class="form-control" value="{{ $anggaran->divisi }}" required>
+                    <select name="divisi" class="form-control" required>
+                        <option value="">Pilih Divisi</option>
+                        @foreach(App\Models\Divisi::select('divisi')->distinct()->get() as $div)
+                            <option value="{{ $div->divisi }}" {{ $anggaran->divisi == $div->divisi ? 'selected' : '' }}>
+                                {{ $div->divisi }}
+                            </option>
+                        @endforeach
+                    </select>
                 </div>
 
                 <div class="mb-3">
-                    <label for="plot_yang_dipakai" class="form-label">Plot yang Dipakai</label>
-                    <input type="text" name="plot_yang_dipakai" class="form-control" value="{{ $anggaran->plot_yang_dipakai }}" required>
+                    <label for="plot_yang_dipakai" class="form-label">Plot Yang Diapaki</label>
+                    <select name="plot_yang_dipakai" class="form-control" required>
+                        <option value="">Pilih Plot Yang Dipakai</option>
+                        @foreach(App\Models\PlotYangDipakai::select('plotting_budget')->distinct()->get() as $plt)
+                            <option value="{{ $plt->plotting_budget }}" {{$anggaran->plot_yang_dipakai == $plt->plotting_budget ? 'selected' : '' }}>
+                                {{ $plt->plotting_budget }}
+                            </option>
+                        @endforeach
+                    </select>
                 </div>
 
                 <div class="mb-3">
@@ -40,7 +54,14 @@
 
                 <div class="mb-3">
                     <label for="nama_karyawan" class="form-label">Nama Karyawan</label>
-                    <input type="text" name="nama_karyawan" class="form-control" value="{{ $anggaran->nama_karyawan }}" required>
+                    <select name="nama_karyawan" class="form-control" required>
+                        <option value="">Pilih Karyawan</option>
+                        @foreach(App\Models\NamaKaryawan::select('nama')->distinct()->get() as $nam)
+                            <option value="{{ $nam->nama }}" {{$anggaran->nama_karyawan == $nam->nama ? 'selected' : '' }}>
+                                {{ $nam->nama }}
+                            </option>
+                        @endforeach
+                    </select>
                 </div>
 
                 <div class="d-flex justify-content-between">
